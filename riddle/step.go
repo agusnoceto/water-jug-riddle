@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+//Step represents the state of 2 given Jugs. It contains the Action to be performed
+//and a pointer to the previous Step. First Step will have it's Previous as nil
 type Step struct {
 	JugX     *Jug
 	JugY     *Jug
@@ -12,6 +14,7 @@ type Step struct {
 	Action   Action
 }
 
+//Execute the Action of the Step.
 func (o *Step) Execute() {
 	switch o.Action {
 	case FillX:
@@ -29,7 +32,7 @@ func (o *Step) Execute() {
 	}
 }
 
-//Transfer transfers water from one jug to the other.
+//transfer, transfers water from one jug to the other.
 //If the origin Jug contained more water that the remaining capacity of the destination Jug
 // then the remainder is set into the origin Jug
 func (o *Step) transfer(from, to *Jug) {
@@ -49,6 +52,7 @@ func (o *Step) NextSteps() []Step {
 	return nextSteps
 }
 
+//validate, validates if the given Action is valid for the state of the Step
 func (o *Step) validate(action Action) error {
 	switch action {
 	case FillX:
@@ -84,7 +88,7 @@ func (o *Step) validate(action Action) error {
 	}
 	return nil
 }
-
+//next returns the next step. i.e. this same step but with a new Action to be Executed
 func (o *Step) next(action Action) Step {
 	return Step{
 		JugX:     o.JugX.Clone(),
@@ -99,23 +103,12 @@ func (o *Step) String() string {
 	return v
 }
 
-func (o *Step) Solution() []Step {
-	result := make([]Step, 0)
-	return o.solution(result)
-
-}
-
-func (o *Step) solution(steps []Step) []Step {
-	if o.Previous == nil{
-		return steps
-	}
-	steps = append(o.Previous.solution(steps), *o)
-	return steps
-}
-
+//Equals returns true if 2 Steps contain 2 Jugs that are equal.
+//Note that a Step with JugX: [size = 5, amount = 3] and JugY: [size = 8, amount = 2], is equal
+//to a Step with JugX: [size = 8, amount = 2] and JugY: [size = 5, amount = 3].
 func (o *Step) Equals(other *Step) bool {
-	return o.JugX.amount == other.JugX.amount &&
-		o.JugY.amount == other.JugY.amount
+	return o.JugX.Equals(*other.JugX) && o.JugY.Equals(*other.JugY) ||
+		o.JugX.Equals(*other.JugY) && o.JugY.Equals(*other.JugX)
 }
 
 func NewStep(sizeX, sizeY int64) *Step {

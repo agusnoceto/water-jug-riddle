@@ -1,5 +1,6 @@
 package riddle
 
+//Action represent each of the possible moves in a given Step
 type Action int
 
 const (
@@ -33,6 +34,7 @@ func (o Action) String() string {
 	}
 }
 
+//Actions returns an array containing all possible values for Action
 func Actions() []Action {
 	return []Action{FillX, FillY, EmptyX, EmptyY, TransferX, TransferY}
 }
