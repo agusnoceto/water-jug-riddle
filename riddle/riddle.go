@@ -1,7 +1,7 @@
 package riddle
 
 //Solve will determine if there's a solution for the given input. If there is one,
-//it will return the last Step of that solution. if not it will return nil
+//it will return the last Step of that solution. if not it will return nil.
 func Solve(sizeX, sizeY, desired int64) *Step {
 	if hasSolution(sizeX, sizeY, desired) {
 		return doSolve(sizeX, sizeY, desired)
@@ -12,7 +12,7 @@ func Solve(sizeX, sizeY, desired int64) *Step {
 //doSolve finds a solution using the following heuristic:
 //Create an N-ary tree in which each node (Step) of the tree represents a state of 2 Jugs in a given time.
 //The Root node will contain a Step representing the initial State: i.e. Two Empty Jugs of the sizes entered by the user.
-//Each following Level in the tree will contain all valid moves (Action) of water. This will be the Children of Root
+//Each following Level in the tree will contain all valid moves (Action) of water. This will be the Children of Root.
 //
 //So the second level will contain the 2 possible first moves (Action). This is:
 //One Step with Action = FillX (fill Jug X from the lake).
@@ -51,7 +51,6 @@ func doSolve(sizeX int64, sizeY int64, desired int64) *Step {
 	return nil
 }
 
-//contains checks if a given Step is in the array passed as argument
 func contains(steps []Step, step *Step) bool {
 	for _, s := range steps {
 		if s.Equals(step) {
@@ -61,19 +60,19 @@ func contains(steps []Step, step *Step) bool {
 	return false
 }
 
-//isSolution checks whether the desired volume is in any of the 2 Jugs of this Step
+//isSolution checks whether the desired volume is in any of the 2 Jugs of this Step.
 func isSolution(current *Step, requested int64) bool {
 	return requested == current.JugX.amount || requested == current.JugY.amount
 }
 
 //checks if the given input has solutions by checking if the desired amount is divisible by
-//the Greatest Common Divisor of the Jug sizes
+//the Greatest Common Divisor of the Jug sizes.
 func hasSolution(sizeA, sizeB, requested int64) bool {
 	gcd := resolveGCD(sizeA, sizeB)
 	return requested%gcd == 0
 }
 
-//resolveGCD calculates
+//resolveGCD calculates the Greates Common Divisor of the 2 arguments.
 func resolveGCD(numberA, numberB int64) int64 {
 	if numberB == 0 {
 		return numberA

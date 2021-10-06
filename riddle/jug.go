@@ -56,7 +56,7 @@ func (o *Jug) Set(volume int64) {
 func (o *Jug) Clone() *Jug {
 	return NewJug(o.size, o.amount)
 }
-//Equals return true if 2 Jugs have both same size and amount of liquid. False otherwise
+
 func (o *Jug) Equals(other Jug) bool{
 	return o.amount == other.amount && o.size == other.size
 }

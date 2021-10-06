@@ -6,7 +6,7 @@ import (
 )
 
 //Step represents the state of 2 given Jugs. It contains the Action to be performed
-//and a pointer to the previous Step. First Step will have it's Previous as nil
+//and a pointer to the previous Step. First Step will have it's Previous as nil.
 type Step struct {
 	JugX     *Jug
 	JugY     *Jug
@@ -34,13 +34,13 @@ func (o *Step) Execute() {
 
 //transfer, transfers water from one jug to the other.
 //If the origin Jug contained more water that the remaining capacity of the destination Jug
-// then the remainder is set into the origin Jug
+// then the remainder is set into the origin Jug.
 func (o *Step) transfer(from, to *Jug) {
 	remainder := to.Pour(from.amount)
 	from.Set(remainder)
 }
 
-//NextSteps returns an array with the valid next Steps of the current Step
+//NextSteps returns an array with the valid next Steps of the current Step.
 func (o *Step) NextSteps() []Step {
 	nextSteps := make([]Step, 0)
 
@@ -52,7 +52,7 @@ func (o *Step) NextSteps() []Step {
 	return nextSteps
 }
 
-//validate, validates if the given Action is valid for the state of the Step
+//validate, validates if the given Action is valid for the state of the Step.
 func (o *Step) validate(action Action) error {
 	switch action {
 	case FillX:
@@ -88,7 +88,7 @@ func (o *Step) validate(action Action) error {
 	}
 	return nil
 }
-//next returns the next step. i.e. this same step but with a new Action to be Executed
+//next returns the next step. i.e. this same step but with a new Action to be Executed.
 func (o *Step) next(action Action) Step {
 	return Step{
 		JugX:     o.JugX.Clone(),
