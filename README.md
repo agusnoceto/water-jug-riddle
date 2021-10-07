@@ -37,7 +37,7 @@ Download the repo:
 
 `git clone https://github.com/agusnoceto/water-jug-riddle`
 
-And run the following scrypt:
+And run the following script:
 
 `$> ./run-riddle.sh`
 
