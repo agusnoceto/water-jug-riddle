@@ -41,7 +41,7 @@ And run the following script:
 
 `$> ./run-riddle.sh`
 
-Or alternatively, run build & run docker image:
+Or alternatively, build & run docker image:
 
 `docker build --file Dockerfile --tag water-jug-riddle .`
 
