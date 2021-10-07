@@ -28,7 +28,7 @@ func (o Action) String() string {
 	case TransferX:
 		return "Transfer Jug X into Y:\t"
 	case TransferY:
-		return "Transfer Jug Y into X:13\t"
+		return "Transfer Jug Y into X:\t"
 	default:
 		return ""
 	}
