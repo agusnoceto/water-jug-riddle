@@ -31,3 +31,18 @@ will be tested on. Ideally executed inside a docker image.
 - Code Quality / Design / Patterns
 - Testability
 - UI/UX design
+
+# Instructions
+Download the repo:
+
+`git clone https://github.com/agusnoceto/water-jug-riddle`
+
+And run the following scrypt:
+
+`$> ./run-riddle.sh`
+
+Or alternatively, run build & run docker image:
+
+`docker build --file Dockerfile --tag water-jug-riddle .`
+
+`docker run -it water-jug-riddle`
