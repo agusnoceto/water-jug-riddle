@@ -19,9 +19,14 @@ By using only an X-gallon and a Y-gallon jug (no third jug), measure Z gallons o
 	EnterDesired = "Please enter the desired volume to be reached: "
 	Again        = "Do you want to play again? [y/n]: "
 	GoodBye      = "Good bye!"
+
+	Banner = "██╗    ██╗ █████╗ ████████╗███████╗██████╗          ██╗██╗   ██╗ ██████╗     ██████╗ ██╗██████╗ ██████╗ ██╗     ███████╗\n██║    ██║██╔══██╗╚══██╔══╝██╔════╝██╔══██╗         ██║██║   ██║██╔════╝     ██╔══██╗██║██╔══██╗██╔══██╗██║     ██╔════╝\n██║ █╗ ██║███████║   ██║   █████╗  ██████╔╝         ██║██║   ██║██║  ███╗    ██████╔╝██║██║  ██║██║  ██║██║     █████╗  \n██║███╗██║██╔══██║   ██║   ██╔══╝  ██╔══██╗    ██   ██║██║   ██║██║   ██║    ██╔══██╗██║██║  ██║██║  ██║██║     ██╔══╝  \n╚███╔███╔╝██║  ██║   ██║   ███████╗██║  ██║    ╚█████╔╝╚██████╔╝╚██████╔╝    ██║  ██║██║██████╔╝██████╔╝███████╗███████╗\n ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝     ╚════╝  ╚═════╝  ╚═════╝     ╚═╝  ╚═╝╚═╝╚═════╝ ╚═════╝ ╚══════╝╚══════╝\n                                                                                                                        "
 )
 
 func PrintWelcomeMessage() {
+	fmt.Println()
+	fmt.Println(Banner)
+	fmt.Println()
 	fmt.Println(WelcomeMessage)
 	fmt.Println()
 	fmt.Println(Instructions)
