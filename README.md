@@ -34,15 +34,19 @@ will be tested on. Ideally executed inside a docker image.
 
 # Instructions
 Download the repo:
-
-`git clone https://github.com/agusnoceto/water-jug-riddle`
+```
+git clone https://github.com/agusnoceto/water-jug-riddle
+```
 
 And run the following script:
-
-`$> ./run-riddle.sh`
-
+```
+$> ./run-riddle.sh
+```
 Or alternatively, build & run docker image:
 
-`docker build --file Dockerfile --tag water-jug-riddle .`
+```
+docker build --file Dockerfile --tag water-jug-riddle .
+docker run -it water-jug-riddle
+```
 
-`docker run -it water-jug-riddle`
+Note: you will need [docker](https://www.docker.com/) installed in order to run the application. 
