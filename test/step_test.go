@@ -38,7 +38,7 @@ func TestStepEquals(t *testing.T) {
 	equal := riddle.NewStep(size, amount)
 	AssertBool(t, "Expected: Steps should be equals", step.Equals(equal))
 
-	different := riddle.NewStep(size, amount - 1)
+	different := riddle.NewStep(size, amount-1)
 	AssertBool(t, "Expected: Steps should be different", !step.Equals(different))
 
 }

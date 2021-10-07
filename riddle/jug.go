@@ -57,7 +57,7 @@ func (o *Jug) Clone() *Jug {
 	return NewJug(o.size, o.amount)
 }
 
-func (o *Jug) Equals(other Jug) bool{
+func (o *Jug) Equals(other Jug) bool {
 	return o.amount == other.amount && o.size == other.size
 }
 

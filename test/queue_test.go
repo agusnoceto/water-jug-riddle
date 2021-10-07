@@ -15,7 +15,6 @@ func TestPush(t *testing.T) {
 }
 
 func TestPushAll(t *testing.T) {
-
 	queue := riddle.NewQueue()
 	AssertBool(t, "Expected Size to be 0", queue.Size() == 0)
 
@@ -26,11 +25,11 @@ func TestPushAll(t *testing.T) {
 }
 
 func TestPop(t *testing.T) {
-
 	queue := riddle.NewQueue()
 	step := riddle.NewStep(3, 4)
 	queue.Push(*step)
 	AssertBool(t, "Expected Size to be 1", queue.Size() == 1)
+
 	pop := queue.Pop()
 	AssertBool(t, "Expected Size to be 0", queue.Size() == 0)
 	AssertBool(t, "Expected step to be equals", step.Equals(pop))
@@ -39,6 +38,7 @@ func TestPop(t *testing.T) {
 func TestSize(t *testing.T) {
 	queue := riddle.NewQueue()
 	AssertBool(t, "Expected Size to be 0", queue.Size() == 0)
+
 	step := riddle.NewStep(3, 4)
 	queue.Push(*step)
 	AssertBool(t, "Expected Size to be 1", queue.Size() == 1)
@@ -47,7 +47,8 @@ func TestSize(t *testing.T) {
 func TestIsQueueEmpty(t *testing.T) {
 	queue := riddle.NewQueue()
 	AssertBool(t, "Expected IsEmpty() to be true", queue.IsEmpty())
+
 	step := riddle.NewStep(3, 4)
 	queue.Push(*step)
-	AssertBool(t, "Expected IsEmpty() to be false", !queue.IsEmpty() )
+	AssertBool(t, "Expected IsEmpty() to be false", !queue.IsEmpty())
 }

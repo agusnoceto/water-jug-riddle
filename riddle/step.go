@@ -88,6 +88,7 @@ func (o *Step) validate(action Action) error {
 	}
 	return nil
 }
+
 //next returns the next step. i.e. this same step but with a new Action to be Executed.
 func (o *Step) next(action Action) Step {
 	return Step{
@@ -99,7 +100,7 @@ func (o *Step) next(action Action) Step {
 }
 
 func (o *Step) String() string {
-	v := fmt.Sprintf("%s [JugX: %d] [JugY: %d]", o.Action, o.JugX.amount, o.JugY.amount)
+	v := fmt.Sprintf("%s [JugX: %d]\t[JugY: %d]", o.Action, o.JugX.amount, o.JugY.amount)
 	return v
 }
 

@@ -13,5 +13,4 @@ func TestSolve(t *testing.T) {
 	solution = riddle.Solve(4, 2, 1)
 	AssertBool(t, "Expected No solution", solution == nil)
 
-
 }
